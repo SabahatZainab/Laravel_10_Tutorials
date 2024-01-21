@@ -1,0 +1,36 @@
+
+Two way for seeders
+1. seeders -> using for real data
+2. factory -> using for fake data
+
+Steps To Work in Seeder
+1. php artisan make:model student ->model create kare ge jiska seeder banana hai
+2. php artisan make:seeder StudentSeeder
+3. use App\Models\student; ->seeder ki file ma sab se pahli hum model ko include kare ge
+    class StudentSeeder extends Seeder
+    {
+        public function run(): void
+        {
+            student::create([
+                'name' =>'Yahoo Baba',
+                'email' => 'yahoobaba@gmail.com'
+            ]);
+        }
+    }
+4. call our seeder using this line "$this->call([StudentSeeder::class]);"in 
+seeders/DatabaseSeeder.php
+5. php artisan db:seed => run seeder using this command.
+6. command to run specific seeder "php artisan db:seed --class=StudentSeeder"
+
+in laravel we have a helper function for adding fake data in database when we are in developing phase we need some data for testing purpose
+        Student::create
+            ([
+                'name' => fake()->name(), //generate fake name
+                'email' => fake()->unique()->email(), //generate fake email which are also unique
+            ]);
+
+
+model aur seeder create k time nam ki pechee 's' nhi lagatee
+database ki naam ma 's' lagatee hai
+
+16.48
