@@ -1,0 +1,25 @@
+Steps to work with database
+1. create database
+2. create database migrations
+3. Seeding
+4. Create Model -> to work with database laravel provide two methods (for database coding)
+        1. query builder (coding in Controller file)
+        2. eloquent orm (coding in model file)
+
+QUERY BUILDER
+    using query builder we can perform crud operation in database
+Benefits of QUERY BUILDER
+    Faster Database coding
+    it protects your application from SQL injection attacks  by using PDO parameter binding
+    it works with all of laravel's supported database systems, such as MySQL, PostgreSQL, SQLite, and SQL Server.
+Steps to work query builder
+coding perform in Controller
+include this in Controller file "use Illuminate\Support\Facades\DB";
+for getting data
+    DB::table('users')->get(); -> return data in json format
+    table() have many function to work on data
+    get(), insert(), update(), delete()
+
+dd vs dump
+    dd -> debug information in black screen can't execute lines of code after dd.
+    dump -> debug information in black screen execute lines of code after dump.
