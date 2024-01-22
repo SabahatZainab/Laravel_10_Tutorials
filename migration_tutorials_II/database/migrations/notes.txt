@@ -1,0 +1,9 @@
+Modify Table With Migration
+
+1. $table->rename('from','to');
+2. $table->drop('users');
+3. Schema::dropIfExits('users');  // check before drop the table if it exits or not
+4. ...........
+5. ...........
+
+Constraints with Migration

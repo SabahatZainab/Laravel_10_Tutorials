@@ -1,0 +1,14 @@
+Foriegn Key With Cascade
+
+$table->foreign('City_id')->reference('Cid')->on('City')
+    ->onUpdate('cascade')
+    ->onDelete('cascade');
+
+foreign key with cascade & restrict
+ 1. cascadeOnUpdate()
+ 2. cascadeOnDelete()
+ 3. restrictOnUpdate()
+ 4. restrictOnDelete()
+ 5. nullOnDelete()
+
+3 ways to make Foreign Key
