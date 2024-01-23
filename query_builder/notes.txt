@@ -34,3 +34,195 @@ dd vs dump
         $users = DB::table('users')->select('city')->distinct()->get(); //use distinct method for getting non-duplicate records
         instead of using select method we can also use pluck method which laravel provided, pluck method return an array and it accepts maximum 2 column first for value and other key
 
+// $users = DB::table('users')->get(); //get all records
+        // $users = DB::table('users')->select('name','city')->get(); //get selected columns
+        // $users = DB::table('users')->select('name','email as user_email')->get(); // using alias
+        // $users = DB::table('users')->select('city')->distinct()->get(); //use distinct method for getting non-duplicate records
+        // $users = DB::table('users')->pluck('name','id'); //use of pluck method
+        // $users = DB::table('users')->where('city','goa')
+        //                            ->where('age','<>',20)
+        //                            ->get();
+        // $users = DB::table('users')->where('name','like','S%')->get();
+        // $users = DB::table('users')->where([
+        //     ['city','=','goa'],
+        //     ['age','>',20]
+        // ])->get();
+
+        // $users = DB::table('users')
+        //             ->where('city','=','mumbai')
+        //             ->orWhere('age','<',18)
+        //             ->get();
+
+        // $users = DB::table('users')
+        // ->whereBetween('age',[18,20]) //get whose record which have age between 18 to 20, whereBetween clause only work on numeric record
+        // ->get();
+
+        // $users = DB::table('users')
+        // ->whereNotBetween('age',[18,20]) //get whose record which have age not in between 18 to 20, whereBetween clause only work on numeric record
+        // ->get();
+
+        // $users = DB::table('users')
+        //             ->whereIn('id', [1, 2, 3])
+        //             ->get();
+
+        // $users = DB::table('users')
+        //             ->whereNull('email')
+        //             ->get();
+        // $users = DB::table('users')
+        //             ->whereNotNull('email')
+        //             ->get();
+
+        // $users = DB::table('users')
+        //         ->whereDate('created_at', '2024-02-21')
+        //         ->get();
+
+        // $users = DB::table('users')
+        //         ->whereMonth('created_at', '1')
+        //         ->get();
+
+        // $users = DB::table('users')
+        //                 // ->orderBy('name')
+        //                 ->orderBy('age','asc')
+        //                 ->get();
+        //for retreiving first record
+        // $users = DB::table('users')->first();
+
+        //show lastest record which inserted or changed
+        // $users = DB::table('users')->latest()->first();
+        //show last entry which inserted
+        // $users = DB::table('users')->oldest()->first();
+
+        //generate random record (first -> 1)
+        // $users = DB::table('users')->inRandomOrder()->first();
+
+        //fetch record according to limit
+        // $users = DB::table('users')->limit(3)->get();
+
+        //for fetching record after limit
+        // $users = DB::table('users')->limit(3)->offset(3)->get();
+
+        //laravel rename limit to "take" and offset to "skip"
+        // $users = DB::table('users')->take(3)->skip(6)->get();
+
+        //count the number of records 'these methods works on numeric value'
+        $users = DB::table('users')->count();
+
+        //maximum value record
+        $users = DB::table('users')->max('age');
+        $users = DB::table('users')->min('age');
+        $users = DB::table('users')->avg('age');
+        $users = DB::table('users')->sum('age');
+
+
+
+
+        return $users;
+
+        INSERT DATA
+    // $user = DB::table('users')
+            //                 ->insert(
+            //                     [
+            //                         [
+            //                             'name'=>'Ram Kumar2',
+            //                             'email'=>'ram2@gmail.com',
+            //                             'age'=> 30,
+            //                             'city'=>'mumbai',
+            //                             'created_at'=>now(),
+            //                             'updated_at'=>now()
+            //                         ],
+            //                         [
+            //                             'name'=>'Ram Kumar3',
+            //                             'email'=>'ram3@gmail.com',
+            //                             'age'=> 30,
+            //                             'city'=>'goa',
+            //                             'created_at'=>now(),
+            //                             'updated_at'=>now()
+            //                         ]
+            //                     ]
+            //                 );
+            // $user = DB::table('users')
+            //                 ->insert([
+            //                   'name'=>'Ram Kumar',
+            //                   'email'=>'ram1@gmail.com',
+            //                   'age'=> 30,
+            //                   'city'=>'delhi',
+            //                   'created_at'=>now(),
+            //                   'updated_at'=>now()
+            //                 ]);
+            // $user = DB::table('users')
+            //                     ->insertOrIgnore([
+            //                             [
+            //                                 'name'=>'Ram Kumar',
+            //                                 'email'=>'ram1@gmail.com',
+            //                                 'age'=> 30,
+            //                                 'city'=>'delhi',
+            //                             ]
+            //                         ]);
+
+            // $user = DB::table('users')
+            //                     ->upsert(
+            //                         [
+            //                             'name'=>'Ram1',
+            //                             'email'=>'abc@gmail.com',
+            //                             'age'=> 181,
+            //                             'city'=>'goa1',
+            //                         ],
+            //                         ['email']
+            //                         ['city']
+            //                     ); //upsert method check unique column if value exits then update it, else create record accepts two parameters first record to create or update and other column is define columns which are unique,
+                                //third parameter is optional in which we define which column is need to updated
+
+                $user = DB::table('users')
+                                    ->insertGetId(
+                                        [
+                                            'name'=>'Test',
+                                            'email'=>'test@gmail.com',
+                                            'age'=> 100,
+                                            'city'=>'city',
+                                        ]
+                                    ); //insertGetId method insert record and send id (this method works only when our table have an column of autoincrement. like in this case we have id column)
+
+                                    return $user;
+            // if($user)
+            // {
+            //     echo "<h1>Data Successfully Added.</h1>";
+            // }else{
+            //     echo "<h1>Data not Added.</h1>";
+            // }
+UPDATE record
+/ $user = DB::table('users')
+        //             ->where('id',1)
+        //             ->update([
+        //                 'city'=>'Mumbai'
+        //             ]);
+
+        // $user = DB::table('users')
+        //                 ->updateOrInsert(
+        //                     [
+        //                         'email'=>'xyz@gmail.com',
+        //                         'name'=>'xyz',
+        //                         'city'=>'goa'
+        //                     ],
+        //                     [
+        //                         'age'=>98
+        //                     ]
+        //                 );
+
+        // $user = DB::table('users')
+        //                     ->where('id',3)
+                            // ->increment('age'); //find the age column of id 3 and increment by 1.
+                            // ->decrement('age',4); //find the age column of id 3 and decrement by 4.
+                            // ->decrement('age',4, ['city'=>'new']); //find the age column of id 3 and decrement by 4 also update city column to 'new'.
+                            // ->incrementEach([
+                            //     'age' => 2,
+                            //     'votes' => 1, //if we have another column
+
+                            // ]); //if we have two or more numeric columns then we can use this method to increment or decrementing.
+
+
+        if($user)
+        {
+            echo "<h1>Data Successfully Updated.</h1>";
+        }else{
+            echo "<h1>Data not Updated.</h1>";
+        }
