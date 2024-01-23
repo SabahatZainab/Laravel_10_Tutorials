@@ -1,0 +1,16 @@
+Insert Data into Database
+Two ways of seeding
+1. Seeder -> Real Data
+2. Factory -> Fake Data (can generate relationship data)
+
+return data in factory file
+return [
+            'name'=>fake()->name(),
+            'age'=>fake()->numberBetween(),
+            'email'=>fake()->email(),
+            'address'=>fake()->address(),
+            'city'=>fake()->city(),
+            'phone'=>fake()->phoneNumber(),
+            'password'=>fake()->password(),
+        ];
+define how many data we want to created define in databaseseeder file
