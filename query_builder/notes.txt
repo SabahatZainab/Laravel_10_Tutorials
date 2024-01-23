@@ -23,3 +23,14 @@ for getting data
 dd vs dump
     dd -> debug information in black screen can't execute lines of code after dd.
     dump -> debug information in black screen execute lines of code after dump.
+
+    $users = DB::table('users')->get();
+    $users = DB::table('users')->where('id',2)->get();
+    $users = DB::table('users')->find(4);
+
+     // $users = DB::table('users')->get(); //get all records
+        // $users = DB::table('users')->select('name','city')->get(); //get selected columns
+        $users = DB::table('users')->select('name','email as user_email')->get(); // using alias
+        $users = DB::table('users')->select('city')->distinct()->get(); //use distinct method for getting non-duplicate records
+        instead of using select method we can also use pluck method which laravel provided, pluck method return an array and it accepts maximum 2 column first for value and other key
+

@@ -15,6 +15,7 @@
             <h3 style="color:brown"><b>Users</b></h3>
             <table class="table table-hover table-bordered table-striped">
             <thead>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>City</th>
@@ -24,6 +25,7 @@
             <tbody>
                 @foreach ($data as $id => $user )
                     <tr>
+                        <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->city}}</td>

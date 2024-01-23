@@ -28,7 +28,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->city}}</td>
                         <td>{{$user->age}}</td>
-                        <td><a href="{{route('view.user',$user->id)}}" class="btn btn-primary btn-sm">View</a></td>
+                        <td><a href="{{route('user')}}" class="btn btn-danger btn-sm">Back</a></td>
                     </tr>
                 @endforeach
             </tbody>
