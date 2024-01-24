@@ -226,3 +226,5 @@ UPDATE record
         }else{
             echo "<h1>Data not Updated.</h1>";
         }
+
+WORK On How query builder worked on forms(html)

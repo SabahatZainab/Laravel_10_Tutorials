@@ -9,10 +9,11 @@
 </head>
 <body>
 
-<div class="container"style="text-align: center; padding: 5px;">
+<div class="container"style="padding: 5px;">
     <div class="row">
         <div class="col-6">
-            <h3 style="color:brown"><b>Users</b></h3>
+            <h3 style="color:brown;text-align: center;"><b>Users</b></h3>
+            <a href="/newuser" class="btn btn-success btn-sm mb-3" style="text-align: left; padding: 5px;">Add User</a>
             <table class="table table-hover table-bordered table-striped">
             <thead>
                     <th>ID</th>
@@ -22,6 +23,7 @@
                     <th>Age</th>
                     <th>View</th>
                     <th>Delete</th>
+                    <th>Update</th>
             </thead>
             <tbody>
                 @foreach ($data as $id => $user )
@@ -33,6 +35,7 @@
                         <td>{{$user->age}}</td>
                         <td><a href="{{route('view.user',$user->id)}}" class="btn btn-primary btn-sm">View</a></td>
                         <td><a href="{{route('delete.user',$user->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+                        <td><a href="{{route('update.page',$user->id)}}" class="btn btn-warning btn-sm">Update</a></td>
                     </tr>
                 @endforeach
             </tbody>

@@ -21,41 +21,57 @@ class UserController extends Controller
         $user = DB::table('users')->where('id', $id)->get();
         return view('user',['data'=> $user]);
     }
-    public function addUser(){
-
+    public function addUser(Request $request){
             $user = DB::table('users')
-                            ->insertOrIgnore(
+                            ->insert(
                             [
-                              'name'=>'Ram Kumar',
-                              'email'=>'ram1@gmail.com',
-                              'age'=> 30,
-                              'city'=>'delhi',
+                              'name'=> $request->username,
+                              'email'=> $request->useremail,
+                              'age'=> $request->userage,
+                              'city'=> $request->usercity,
                             ]);
 
             // return $user;
             if($user)
             {
-                echo "<h1>Data Successfully Added.</h1>";
+                return redirect()->route('user');
             }else{
                 echo "<h1>Data not Added.</h1>";
             }
     }
-    public function updateUser()
+    public function updatePage($id)
+    {
+        // $user = DB::table('users')
+        //                     ->where('id',$id)
+        //                     ->get();
+        $user = DB::table('users')->find($id);
+        return view('updateUsers',compact('user'));
+    }
+    public function updateUser(Request $request, $id)
     {
         $user = DB::table('users')
-                        ->updateOrInsert(
-                            [
-                                'email'=>'xyz@gmail.com',
-                                'name'=>'xyz',
-                                'city'=>'goa'
-                            ],
-                            [
-                                'age'=>98
-                            ]
-                        );
+                ->where('id', $id)
+                ->update([
+                    'name'=>$request->username,
+                    'email'=>$request->useremail,
+                    'age'=>$request->userage,
+                    'city'=>$request->usercity
+                ]);
+        // $user = DB::table('users')
+        //                 ->updateOrInsert(
+        //                     [
+        //                         'name'=>$request->username,
+        //                         'email'=>$request->useremail,
+        //                         'age'=>$request->userage,
+        //                         'city'=>$request->usercity
+        //                     ],
+        //                     [
+        //                         'id'=>$request->id
+        //                     ]
+        //                 );
         if($user)
         {
-            echo "<h1>Data Successfully Updated.</h1>";
+            return redirect()->route('user');
         }else{
             echo "<h1>Data not Updated.</h1>";
         }
