@@ -12,8 +12,7 @@ class UserController extends Controller
      */
     public function showUsers()
     {
-        $users = DB::table('users')->get(); //get all records
-
+        $users = DB::table('users')->paginate(4); //get all records with Pagination
         return view('allUsers',['data'=> $users]);
     }
     public function singleUser(string $id)

@@ -228,3 +228,50 @@ UPDATE record
         }
 
 WORK On How query builder worked on forms(html)
+
+laravel Pagination Methods Topic Started - code in Controller
+when using paginate no need to use of get method
+1. Paginate()
+    DB::table('users)->paginate(5) //if we can't define paginate() parameter by default it display 15 records
+    this method display paginate in number format like this (< 1 2 3 4 >) if parameter is 5.
+2. simplePaginate()
+    DB::table('users)->simplePaginate(5) //the look of simplePaginate paginate is different from paginate(), it can't display number like paginate()
+    it shows two button previous and next button for displaying records.
+
+3. cursorPaginate()
+    DB::table('users')->orderBy('id')->cursorPaginate(5); //it looks like simplePaginate but this method is fast as compare to both above methods, and it has additional caching/indexing thing provide but because of utilizing resource like ram this is disadvantage
+    if we can't write orderBy() it shows error
+    work on large data, because it work on indexing
+
+blade template code
+{{$data->link()}} un links p tailwind ki class/style lage ate hai
+abhe automatically tailwind chal rahi hai agr hum bootstrap use karna chahte hai to uski do tareqe hai
+App\Providers\AppServiceProvider ki boot class ma define kare Paginator::useBootstrapFive();
+ya hum blade template ma ya to use kiya tha {{$data->link()}} usma parameter dale "pagination::bootstrap-5"
+
+Paginator / LengthAwarePaginator Instance Methods
+Total Users: {{$data->total()}} <br>
+Current Page: {{$data->currentPage()}}
+
+pagination usage
+// $users = DB::table('users')->get(); //get all records
+// $users = DB::table('users')->paginate(4); //get all records with Pagination
+// $users = DB::table('users')->paginate(4)->appends(['sort'=>'votes','test'=>'abc']); //if we want to send extra information in url tab "http://localhost:8000/?sort=votes&test=abc&page=1"
+// $users = DB::table('users')->paginate(4)->fragment("users"); //if we want any value in # in url tab "http://localhost:8000/?page=2#users"
+
+// $users = DB::table('users')->paginate(4,['*'],'search',2);
+//provide other parameters default consider display all records. define what write in url "http://localhost:8000/?search=2" last parameter which page option by default.
+// $users = DB::table('users')
+//                     ->simplePaginate(4); //get all records with Pagination
+// $users = DB::table('users')
+//                     ->where('city','goa')
+//                     ->orderBy('name')
+//                     ->simplePaginate(4); //get all records with Pagination
+
+// $users = DB::table('users')
+//                         ->orderBy('id')
+//                         ->cursorPaginate(5);
+
+
+
+
