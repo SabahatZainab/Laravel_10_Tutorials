@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Student1",
+        "email": "student1@gmail.com",
+        "age": 31,
+        "city":1
+    },
+    {
+        "name": "Student2",
+        "email": "student2@gmail.com",
+        "age": 22,
+        "city":4
+    },
+    {
+        "name": "Student3",
+        "email": "student3@gmail.com",
+        "age": 17,
+        "city":3
+    },
+    {
+        "name": "Student4",
+        "email": "student4@gmail.com",
+        "age": 11,
+        "city":5
+    },
+    {
+        "name": "Student5",
+        "email": "student5@gmail.com",
+        "age": 17,
+        "city":2
+    },
+    {
+        "name": "Student6",
+        "email": "student6@gmail.com",
+        "age": 16,
+        "city":3
+    },
+    {
+        "name": "Student7",
+        "email": "student7@gmail.com",
+        "age": 17,
+        "city":1
+    },
+    {
+        "name": "Student8",
+        "email": "student8@gmail.com",
+        "age": 19,
+        "city":2
+    },
+    {
+        "name": "Student9",
+        "email": "student9@gmail.com",
+        "age": 17,
+        "city":3
+    },
+    {
+        "name": "Student10",
+        "email": "student10@gmail.com",
+        "age": 18,
+        "city":1
+    }
+]

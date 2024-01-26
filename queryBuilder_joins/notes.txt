@@ -1,0 +1,87 @@
+Joins
+left joins example queries
+// $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->select('students.*','cities.city_name')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->select('students.*','cities.city_name')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->where('students.email','=','student10@gmail.com')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->select('students.*','cities.city_name')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->where('students.name','like','s%')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->select('students.*','cities.city_name')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->where('cities.city_name','=','City1')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->select('students.*','cities.city_name')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->count();
+
+        // $students = DB::table('students')
+        //                 ->select('students.*','cities.city_name')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->where('cities.city_name','=','City1')
+        //                 ->count();
+
+        // $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->select(DB::raw('count(*) as student_count'))
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->select(DB::raw('count(*) as student_count'),'age')
+        //                 ->groupBy('age')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->select(DB::raw('count(*) as student_count'),'cities.city_name')
+        //                 ->groupBy('city_name')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->select(DB::raw('count(*) as student_count'),'cities.city_name')
+        //                 ->groupBy('city_name')
+        //                 ->orderBy('student_count', 'DESC')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->select(DB::raw('count(*) as student_count'),'cities.city_name')
+        //                 ->groupBy('city_name')
+        //                 ->orderBy('student_count', 'DESC')
+        //                 ->having('cities.city_name','=','City1')
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->select(DB::raw('count(*) as student_count'),'cities.city_name')
+        //                 ->groupBy('city_name')
+        //                 ->orderBy('student_count', 'DESC')
+        //                 ->having('student_count','>',1)
+        //                 ->get();
+
+        // $students = DB::table('students')
+        //                 ->join('cities','students.city','=','cities.id')
+        //                 ->select(DB::raw('count(*) as student_count'),'cities.city_name')
+        //                 ->groupBy('city_name')
+        //                 ->orderBy('student_count', 'DESC')
+        //                 ->havingBetween('student_count',[1,3])
+        //                 ->get();
