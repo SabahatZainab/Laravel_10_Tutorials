@@ -1,5 +1,11 @@
+types of joins
+1- join() ->inner join
+2- leftJoin() -> left join
+3- rightJoin() -> right join
+4- crossJoin() ->cross join
+
 Joins
-left joins example queries
+--------------------------left joins example queries-----------------------------
 // $students = DB::table('students')
         //                 ->join('cities','students.city','=','cities.id')
         //                 ->get();
@@ -85,3 +91,26 @@ left joins example queries
         //                 ->orderBy('student_count', 'DESC')
         //                 ->havingBetween('student_count',[1,3])
         //                 ->get();
+------------------------------------left joins------------------------------------------
+$students = DB::table('students')
+                            ->leftJoin('cities','students.city','=','cities.id')
+                            ->get();
+
+-------------------------------------right joins--------------------------------------------
+$students = DB::table('students')
+                    ->rightJoin('cities','students.city','=','cities.id')
+                    ->get();
+
+---------------------------------------cross join ------------------------------------------=
+$students = DB::table('students')
+                            ->crossJoin('cities')->get();
+
+-----------------------------------------Advanced Join Clauses--------------------------------
+----------------on method
+$students = DB::table('students')
+                            ->leftJoin('cities',function(JoinClause $join){
+                                $join->on('students.city','=','cities.id')
+                                    ->where('cities.city_name','=','City1');
+                            })
+                            ->select('students.*','cities.city_name')
+                            ->get();
