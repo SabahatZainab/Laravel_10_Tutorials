@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Prem Chopra",
+        "email": "prem@gmail.com",
+        "age": 45,
+        "city":1
+    },
+    {
+        "name": "Amrish Puri",
+        "email": "amrish@gmail.com",
+        "age": 46,
+        "city":2
+    },
+    {
+        "name": "Gulshan Grover",
+        "email": "gulshan@gmail.com",
+        "age": 44,
+        "city":3
+    }
+]

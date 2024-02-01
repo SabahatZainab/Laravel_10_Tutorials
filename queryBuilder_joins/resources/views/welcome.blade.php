@@ -4,7 +4,7 @@
         {{$data->id}} |
         {{$data->name}} |
         {{$data->email}} |
-        {{$data->city_name}}
+        {{$data->city}}
     </h3>
 
 @endforeach
