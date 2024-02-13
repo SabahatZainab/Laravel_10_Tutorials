@@ -44,7 +44,7 @@ class MechanicController extends Controller
     }
     public function show_data()
     {
-        $mechanic = Mechanic::find(1)->carOwner;
+        $mechanic = Mechanic::find(3)->carOwner;
         return $mechanic;
     }
 }
